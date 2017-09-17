@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="TMDB_MOVIE_API">https://api.themoviedb.org/3</string>
+    <string name="TMDB_MOVIE_IMAGE_API">https://image.tmdb.org/t/p/</string>
+</resources>
