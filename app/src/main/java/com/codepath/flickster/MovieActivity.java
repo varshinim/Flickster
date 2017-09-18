@@ -71,7 +71,8 @@ public class MovieActivity extends AppCompatActivity {
                         movies.add(new Movie(
                                 imageUrl + "w500" + o.getString("poster_path") + "?api_key=" +tmdbApiKey,
                                 o.getString("title"), o.getString("overview"),
-                                imageUrl + "w500" + o.getString("backdrop_path") + "?api_key=" +tmdbApiKey));
+                                imageUrl + "w1280" + o.getString("backdrop_path") + "?api_key=" +tmdbApiKey,
+                                o.getDouble("vote_average")));
                     }
 
                 } catch (JSONException e) {
