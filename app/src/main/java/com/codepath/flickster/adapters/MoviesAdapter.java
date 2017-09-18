@@ -2,6 +2,7 @@ package com.codepath.flickster.adapters;
 
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,7 +50,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View movieView = inflater.inflate(R.layout.lv_layout, parent, false);
-
         ViewHolder viewHolder = new ViewHolder(movieView);
         return viewHolder;
     }
@@ -58,9 +58,15 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
     public void onBindViewHolder(MoviesAdapter.ViewHolder viewHolder, int position){
         Movie movie = movieList.get(position);
 
+        String image = null;
+        if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            image = movie.getImage();
+        } else if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            image = movie.getBackdropImage();
+        }
+
         ImageView imageView = viewHolder.movieImage;
-        Log.d("Image name: ", movie.getImage());
-        Picasso.with(context).load(movie.getImage()).into(imageView);
+        Picasso.with(context).load(image).into(imageView);
         TextView textViewt = viewHolder.movieTitle;
         textViewt.setText(movie.getTitle());
         TextView textViewo = viewHolder.movieOverview;

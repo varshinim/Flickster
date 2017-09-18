@@ -7,11 +7,13 @@ public class Movie {
     private String movieImage;
     private String movieTitle;
     private String movieOverview;
+    private String backdropImage;
 
-    public Movie(String image, String title, String overview){
+    public Movie(String image, String title, String overview, String backdropImage){
         movieImage = image;
         movieTitle = title;
         movieOverview = overview;
+        this.backdropImage = backdropImage;
     }
 
     public String getImage(){
@@ -24,6 +26,10 @@ public class Movie {
 
     public String getOverview(){
         return movieOverview;
+    }
+
+    public String getBackdropImage() {
+        return backdropImage;
     }
 
 }
